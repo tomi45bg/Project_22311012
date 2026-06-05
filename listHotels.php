@@ -7,13 +7,15 @@
 
 <script language="javascript" type="text/javascript">
     function popupWin(url){
-        myWindow=window.open(url,'mywin','width=450,height=350')
+        myWindow=window.open(url,'mywin','width=500,height=500')
     }
 
 </script>
 
 </head>
-<body style="font-size: 20px;">
+<body style="font-size: 18px;">
+
+<div style="display:flex; flex-direction:column; align-items:center;">
 
 <?php
 session_start();
@@ -44,7 +46,7 @@ if (!$result) {
 
 else { echo "<h2>Хотели: </h2>";
 	?>
-<table border="1">
+<table border="1" cellpadding="5" cellspacing="0" style="margin: auto;">
 <tr><th>Номер</th><th><a href="<?php echo $_SERVER['PHP_SELF']."?order=hotel_name" ?>">Име</a></th>
 <th><a href="<?php echo $_SERVER['PHP_SELF']."?order=city_name" ?>">Град</a></th>
 <th>Държава</th>
@@ -54,7 +56,9 @@ else { echo "<h2>Хотели: </h2>";
 <th>Ресторант</th>
 <th>Спа център</th>
 <th>Басейн</th>
-<th>Дискотека</th></tr>
+<th>Дискотека</th>
+<th>Изтриване</th>
+<th>Редактиране</th></tr>
 
 <?php
 $broi = 1;
@@ -70,6 +74,10 @@ while ($row = mysqli_fetch_assoc($result)){
 	echo "<td>".($row["spa"] ? "Да" : "Не" )."</td>";
 	echo "<td>".($row["pool"] ? "Да" : "Не" )."</td>";
 	echo "<td>".($row["disco"] ? "Да" : "Не" )."</td>";
+    echo "<td><a onclick=\"return confirm('Искате ли да изтриете този хотел?')\"
+     href='javascript:popupWin(\"delete.php?id=".$row["id"]."\")'>Изтрий</a></td>";
+    echo "<td><a onclick=\"return confirm('Искате ли да редактирате този хотел?')\"
+     href='javascript:popupWin(\"update.php?id=".$row["id"]."\")'>Редактирай</a></td>";
 	echo "</tr>\n";
 	$broi++;
 }
@@ -79,10 +87,19 @@ while ($row = mysqli_fetch_assoc($result)){
 
 <?php } ?>
 <br /><br />
-<a href="javascript:popupWin('addHotel.php')">
+<a href="javascript:popupWin('form.php')">
 Добави нов хотел
-</a><br /><br />
+</a><br />
+<a href="javascript:popupWin('addCity.php')">
+Добави нов град
+</a><br />
 <a href="logout.php">Изход</a>
+
+<br />
+
+<img src="travelPhoto.jpeg" style="width:500px; height:500px;"> 
+
+</div>
 
 </body>
 

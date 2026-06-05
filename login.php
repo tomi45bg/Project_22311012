@@ -3,11 +3,11 @@
 <head>
 <title>Логин страница</title>
 </head>
-<body>
+<body style="background-color:gray;">
 
 <div style="display:table; margin:300px auto; border:1px solid black; padding:10px 20px;">
 
-<form action="" method="post">
+<form action="" method="post" style="font-size:20px;">
     <label>Потребителско име: </label><input type="text" name="username"><br /><br />
     <label>Парола: </label><input type="password" name="password"><br /><br />
     <input type = "submit" value = " Submit "/><br />
@@ -33,7 +33,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         foreach ($_SESSION as $key=>$el) unset($_SESSION[$key]);
          $_SESSION['user'] = $username;
          
-         header("location: main.php");
+         header("location: listHotels.php");
     } else {
         echo "Грешно потребителско име или парола!";
     }

@@ -5,7 +5,7 @@
 <title>Редактиране на хотел</title>
 </head>
 
-<body>
+<body style="background-color: #a28089">
 
 <p>Редактиране на хотел:</p>
 

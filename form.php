@@ -16,7 +16,7 @@ include("connect.php");
 <title>Добавяне на нов хотел</title>
 </head>
 
-<body>
+<body style="background-color: #a28089">
 
 <p>Добавяне на хотел</p>
 

@@ -13,7 +13,7 @@
 </script>
 
 </head>
-<body style="font-size: 18px;">
+<body style="font-size: 18px; background-color: #a28089">
 
 <div style="display:flex; flex-direction:column; align-items:center;">
 
@@ -32,6 +32,7 @@ if (isset($_GET['order']))
 { switch ($_GET['order']){
 	case 'hotel_name': $sql .= " ORDER BY hotel_name"; break;
     case 'city_name': $sql .= " ORDER BY city_name"; break;
+    case 'country': $sql .= " ORDER BY country"; break;
     case 'apartments': $sql .= " ORDER BY hotels.apartments"; break;
 
     default: $sql .= " ORDER BY hotel_name";
@@ -46,10 +47,10 @@ if (!$result) {
 
 else { echo "<h2>Хотели: </h2>";
 	?>
-<table border="1" cellpadding="5" cellspacing="0" style="margin: auto;">
+<table border="3" cellpadding="5" cellspacing="0" style="border-collapse: collapse; margin: auto;">
 <tr><th>Номер</th><th><a href="<?php echo $_SERVER['PHP_SELF']."?order=hotel_name" ?>">Име</a></th>
 <th><a href="<?php echo $_SERVER['PHP_SELF']."?order=city_name" ?>">Град</a></th>
-<th>Държава</th>
+<th><a href="<?php echo $_SERVER['PHP_SELF']."?order=country" ?>">Държава</a></th>
 <th><a href="<?php echo $_SERVER['PHP_SELF']."?order=apartments" ?>">Апартаменти</a></th>
 <th>Студиа</th>
 <th>Офиси</th>
@@ -93,6 +94,16 @@ while ($row = mysqli_fetch_assoc($result)){
 <a href="javascript:popupWin('addCity.php')">
 Добави нов град
 </a><br />
+<a href="spravka1.php">
+Справка 1 (хотели в България)
+</a><br />
+<a href="spravka2.php">
+Справка 2 (хотели с повече от 30 апартамента)
+</a><br />
+<a href="spravka3.php">
+Справка 3 (хотели с дискотека)
+</a><br />
+
 <a href="logout.php">Изход</a>
 
 <br />

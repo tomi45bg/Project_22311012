@@ -14,7 +14,7 @@ if (!isset($_SESSION['user'])) {
 <title> Добавяне на град </title>
 <meta charset="UTF-8">
 </head>
-<body>
+<body style="background-color: #a28089">
 
 <p>Добавяне на нов град: </p>
 <form method="post">

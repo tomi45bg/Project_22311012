@@ -3,7 +3,7 @@
 <head>
 <title>Логин страница</title>
 </head>
-<body style="background-color:gray;">
+<body style="background-color:#a28089;">
 
 <div style="display:table; margin:300px auto; border:1px solid black; padding:10px 20px;">
 
